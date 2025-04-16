@@ -23,5 +23,23 @@ class TestPalindrome(unittest.TestCase):
         self.assertTrue(is_palindrome("Yo hago yoga hoy"))
         self.assertTrue(is_palindrome("Amo la pacífica paloma"))
 
+    def test_frase_vacia(self):
+        with self.assertRaises(ValueError):
+            es_palindromo("")
+
+    def test_un_solo_caracter(self):
+        self.assertTrue(es_palindromo("a"))
+
+    def test_solo_espacios(self):
+        with self.assertRaises(ValueError):
+            es_palindromo("     ")
+
+    def test_caracteres_especiales(self):
+        self.assertTrue(es_palindromo("¿Acaso hubo búhos acá?"))
+
+    def test_mayusculas_acentos_y_puntuacion(self):
+        self.assertTrue(es_palindromo("Ánita, la Va LavÁ!"))
+
+
 if __name__ == '__main__':
     unittest.main()
