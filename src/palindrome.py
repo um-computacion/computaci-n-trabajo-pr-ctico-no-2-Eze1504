@@ -14,6 +14,8 @@ def clean_text(texto: str) -> str:
     return texto_limpio
 
 def is_palindrome(texto: str) -> bool:
+    if texto.strip() == "":
+        raise ValueError("La frase no puede estar vacía o solo contener espacios.")
     if not isinstance(texto, str):
         raise TypeError("El argumento debe ser una cadena de texto.")
 
